@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="home" href="home.html">
+</head>
+<body>
+
+  <div class="main">
+    <h1>LOGIN</h1>
+
+    <form method="POST"  onsubmit="return checkLogin()">
+      <label for="first">Username:</label>
+      <input type="text" id="first" name="first" placeholder="Enter your Username" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your Password" required>
+
+      <div class="wrap">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+    <p>Not registered?
+      <a href="register.html" style="text-wrap: initial;">Create an account</a>
+    </p> 
+  </div>
+  <script>
+    function checkLogin() {
+      const correctUser = "admin";
+      const correctPass = "12345";
+
+      const user = document.getElementById("first").value;
+      const pass = document.getElementById("password").value;
+
+      if (user === correctUser && pass === correctPass) {
+        alert("Login Successful!");
+        window.location.href = "home.html";  
+        return false; 
+      } else {
+        alert("Incorrect Username or Password.");
+        return false; 
+      }
+    }
+  </script>
+
+</body>
+</html>
