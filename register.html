@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="register.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Register</h2>
+
+    <p id="msg" style="color:green; text-align:center;"></p>
+
+    <input type="text" id="regUser" placeholder="Create Username">
+    <input type="password" id="regPass" placeholder="Create Password">
+
+    <button onclick="register()">Register</button>
+
+    <p>Already have an account? <a href="index.html">Login</a></p>
+</div>
+
+<script>
+    function register() {
+        let user = document.getElementById("regUser").value;
+        let pass = document.getElementById("regPass").value;
+        let msg = document.getElementById("msg");
+
+        if (user === "" || pass === "") {
+            msg.style.color = "red";
+            msg.textContent = "All fields are required!";
+            return;
+        }
+        localStorage.setItem("username", user);
+        localStorage.setItem("password", pass);
+
+        msg.style.color = "green";
+        msg.textContent = "Registration successful! You can now login.";
+        
+        setTimeout(() => {
+        window.location.href = "index.html";
+    }, 1500);
+    }
+</script>
+
+</body>
+</html>
+
+</html>
